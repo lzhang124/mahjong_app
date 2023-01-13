@@ -6,6 +6,6 @@ ENV APP_HOME /app
 WORKDIR $APP_HOME
 COPY . ./
 
-RUN pip install --no-cache-dir -r requirements.txt
+RUN make install
 
-CMD exec gunicorn -w 1 -b 0.0.0.0:8185 --timeout 0 flask_app:app
+CMD make run

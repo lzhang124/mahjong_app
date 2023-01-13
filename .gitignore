@@ -1,5 +1,6 @@
 .DS_Store
 .python-version
 
+__pycache__/
 node_modules/
 package-lock.json
