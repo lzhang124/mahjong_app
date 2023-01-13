@@ -1,0 +1,12 @@
+{
+  "name": "mahjong-app",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "babel app.jsx --watch --out-file app.js --presets @babel/preset-react"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.20.7",
+    "@babel/core": "^7.20.12",
+    "@babel/preset-react": "^7.18.6"
+  }
+}
