@@ -1,5 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
@@ -11,6 +13,7 @@ const CONFIG = {
     path: path.resolve(__dirname, 'build/'),
     publicPath: '/',
   },
+  plugins: [new CleanWebpackPlugin(), new HtmlWebpackPlugin({ template: './src/index.html' })],
   module: {
     rules: [
       {
