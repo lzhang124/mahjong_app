@@ -10,7 +10,7 @@ const CONFIG = {
   mode: isDevelopment ? 'development' : 'production',
   output: {
     filename: 'main.js',
-    path: path.resolve(__dirname, 'build/'),
+    path: path.resolve(__dirname, 'build'),
     publicPath: '/',
   },
   plugins: [new CleanWebpackPlugin(), new HtmlWebpackPlugin({ template: './src/index.html' })],
@@ -35,7 +35,7 @@ if (isDevelopment) {
   CONFIG.devServer = {
     compress: true,
     port: 3000,
-    static: path.join(__dirname, 'build/'),
+    static: path.join(__dirname, 'build'),
     historyApiFallback: true,
     hot: true,
   };
