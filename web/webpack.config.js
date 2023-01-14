@@ -8,7 +8,7 @@ const CONFIG = {
   mode: isDevelopment ? 'development' : 'production',
   output: {
     filename: 'main.js',
-    path: path.resolve(__dirname, 'public/'),
+    path: path.resolve(__dirname, 'build/'),
     publicPath: '/',
   },
   module: {
@@ -32,7 +32,7 @@ if (isDevelopment) {
   CONFIG.devServer = {
     compress: true,
     port: 3000,
-    static: path.join(__dirname, 'public'),
+    static: path.join(__dirname, 'build/'),
     historyApiFallback: true,
     hot: true,
   };
