@@ -3,4 +3,5 @@
 
 __pycache__/
 web/node_modules/
-web/build/
+web/build/*
+!web/build/index.html
