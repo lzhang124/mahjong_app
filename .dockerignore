@@ -4,11 +4,11 @@ README.md
 *.pyc
 *.pyo
 *.pyd
-__pycache__
+__pycache__/
 .pytest_cache
 .python-version
 
 .DS_Store
+.env
 
-node_modules
-package-lock.json
+web/
