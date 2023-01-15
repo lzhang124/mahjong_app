@@ -25,8 +25,7 @@ GET_CURRENT_VERSION = '''
 
 UPDATE_VERSION = '''
     UPDATE version
-    SET version = %(version)s
-    WHERE id = 1;
+    SET version = %(version)s;
 '''
 
 
