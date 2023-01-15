@@ -9,4 +9,4 @@ COPY . ./
 RUN pip install -U pip
 RUN pip install --no-cache-dir -r requirements.txt
 
-CMD ["python", "migrate_db.py", "&&", "gunicorn", "--bind", ":8080", "--workers", "1", "--threads", "8", "--timeout", "0", "app:app"]
+CMD ["./start_app.sh"]

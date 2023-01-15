@@ -44,6 +44,9 @@ if __name__ == '__main__':
     versions = [p for p in Path('./api/db/versions').glob('*.sql')]
     max_version = int(max(versions, key=lambda p: int(p.stem)).stem)
 
+    if max_version > current_version:
+        print(f'Migrating db: {current_version} -> {max_version}')
+
     for v in range(current_version + 1, max_version + 1):
         with open(Path('./api/db/versions') / f'{v}.sql', 'r') as f:
             with conn:
