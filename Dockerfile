@@ -9,4 +9,6 @@ COPY . ./
 RUN pip install -U pip
 RUN pip install --no-cache-dir -r requirements.txt
 
+RUN python migrate_db.py
+
 CMD ["gunicorn", "--bind", ":8080", "--workers", "1", "--threads", "8", "--timeout", "0", "app:app"]
