@@ -1,6 +1,10 @@
+import logging
 from pathlib import Path
 
 from api.db.db import db_conn
+
+
+logger = logging.getLogger(__name__)
 
 
 CREATE_VERSION_TABLE = '''
@@ -45,7 +49,7 @@ if __name__ == '__main__':
     max_version = int(max(versions, key=lambda p: int(p.stem)).stem)
 
     if max_version > current_version:
-        print(f'Migrating db: {current_version} -> {max_version}')
+        logger.info(f'Migrating db: {current_version} -> {max_version}')
 
     for v in range(current_version + 1, max_version + 1):
         with open(Path('./api/db/versions') / f'{v}.sql', 'r') as f:
