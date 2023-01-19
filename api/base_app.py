@@ -3,7 +3,7 @@ import logging
 from flask import Blueprint, Flask, jsonify, request
 from flask_cors import CORS
 
-from .db.db import migrate_db
+from .src.db import migrate_db
 
 
 logging.basicConfig(level=logging.INFO)

@@ -2,6 +2,7 @@ import random
 
 from attrs import define, Factory
 
+from .player import Player
 from .tile import TILES, FLOWER_TILES, Tile
 
 
@@ -10,6 +11,7 @@ N_PLAYERS = 4
 
 @define
 class Game:
+    id_: int
     players: list
     min_points: int = 8
     include_flowers: bool = True
@@ -90,39 +92,3 @@ class Game:
 
         for p in self.players_in_order:
             p.sort()
-
-
-@define
-class Player:
-    name: str
-    hidden: list = Factory(list)
-    visible: list = Factory(list)
-    flowers: list = Factory(list)
-    discard: list = Factory(list)
-    drawn_tile: Tile = None
-    scores: list = Factory(list)
-
-    def reset(self):
-        self.hidden = []
-        self.visible = []
-        self.flowers = []
-        self.discard = []
-
-    def draw_hand(self, tiles):
-        self.hidden.extend(tiles)
-
-    def draw(self, tile):
-        if tile.is_flower:
-            self.flowers.append(tile)
-        else:
-            self.drawn_tile = tile
-
-    def sort(self):
-        self.hidden.sort()
-
-    def num_flowers(self):
-        return sum(1 for t in self.hidden if t.is_flower)
-
-    def reveal_flowers(self):
-        self.flowers.extend(t for t in self.hidden if t.is_flower)
-        self.hidden = [t for t in self.hidden if not t.is_flower]
